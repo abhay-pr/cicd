@@ -1,8 +1,7 @@
-#! bin/sh
+#! /bin/bash
 
 # copy the new jar to build location
 
-cd /home/mitsuser/jenkins/jenkins-data/pipeline
 
 cp -f java-app/target/*.jar build/
 
