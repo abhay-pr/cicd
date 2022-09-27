@@ -12,7 +12,7 @@ pipeline {
             steps {
                 sh '''
                     ./maven_build.sh pwd
-                    ./maven_build ls
+                    ./maven_build.sh ls
                     ./maven_build.sh mvn -B -DskipTests clean package
                     ./build/build.sh
                     
