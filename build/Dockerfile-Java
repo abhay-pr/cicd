@@ -4,6 +4,7 @@ FROM openjdk:20-slim
 RUN mkdir /app
 
 
+
 COPY *.jar /app/app.jar
 
 CMD java -jar /app/app.jar
