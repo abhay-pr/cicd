@@ -3,7 +3,6 @@ FROM openjdk:20-slim
 
 RUN mkdir /app
 
-WORKDIR /app
 
 COPY *.jar /app/app.jar
 
