@@ -17,11 +17,11 @@ pipeline {
                 '''
             }
 
-            // post {
-            //     success {
-            //        archiveArtifacts artifacts: 'java-app/target/*.jar', fingerprint: true
-            //     }
-            // }
+            post {
+                success {
+                   archiveArtifacts artifacts: 'java-app/target/*.jar', fingerprint: true
+                }
+            }
         }
 
         stage('Test') {
@@ -29,11 +29,11 @@ pipeline {
                 sh './maven_build.sh mvn test'
             }
 
-            // post {
-            //     always {
-            //         junit 'java-app/target/surefire-reports/*.xml'
-            //     }
-            // }
+            post {
+                success {
+                    junit 'java-app/target/surefire-reports/*.xml'
+                }
+            }
         }
 
         stage('Push') {
@@ -44,7 +44,7 @@ pipeline {
 
         stage('Deploy') {
             steps {
-                sh './jenkins/deploy/deploy.sh'
+                sh './deploy/deploy.sh'
             }
         }
     }
